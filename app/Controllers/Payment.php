@@ -10,31 +10,27 @@ class Payment extends BaseController
 {
     public function addTransaction()
     {
-        $model = new User();
-
-        // Check if passwords match
-        if (true) {
-            echo '<script>
-                alert("Password tidak cocok. Silakan coba lagi.");
-                window.location="' . base_url('/reg') . '"
-            </script>';
-            exit;
-        }
+        $session = session();
+        $user = new User();
+        $userModel = new TradeModel();
+        
+        $namaPengguna = $session->get('id');
+        $user = $userModel->getUserById($namaPengguna);
         
         $data = array(
-            'name' => got from session or somewhere,
-            'email' => got from session or somewhere,
-            'type_subscribtion' => got from after button got clicked,
-            'gross_ammount' => got from after button got clicked,
-            'statustransaction' => got from after button clicked or completed transaction,
-            'created' => got from after button clicked,
-            'updated' => got from after transaction complete 
+            'name' => $user['nama'],
+            'email' => $user['email'].'@gmail.com',
+            'type_subscribtion' => 'Novice',
+            'gross_ammount' => '5000',
+            'statustransaction' => 'Selesai',
+            'created' => date('Y-m-d H:i:s'),
+            'updated' => date('Y-m-d H:i:s')
         );
-        $model->created_transaction($data); 
+        $userModel->created_transaction($data); 
 
         echo '<script>
             alert("Selamat! Berhasil Menambah Data ");
-            window.location="' . base_url('/login') . '"
+            window.location="' . base_url('/') . '"
         </script>';
     }
 }

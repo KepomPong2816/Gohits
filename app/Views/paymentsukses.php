@@ -49,10 +49,20 @@
     </body>
     
     <script>
-        setTimeout(function () {
+      window.onload = function() {
+            // Make an AJAX request to your controller or perform any action
+            // Example: Using fetch to make a simple request
+            fetch('/Payment/addTransaction', {
+                method: 'GET',
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        };
+
+        /* setTimeout(function () {
           document.getElementById('timer').textContent = 5;
         window.location.href= 'http://localhost:8080/'; // the redirect goes here
-
-},5000); // 5 seconds
+        },5000); 5 seconds */ 
     </script>
 </html>

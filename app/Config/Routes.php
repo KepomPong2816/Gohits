@@ -39,7 +39,8 @@ $routes->get('/admin/customer/index', 'Admin\Customer::index'); // open admin cu
 $routes->get('/admin/transaksi/index', 'Admin\Transaksi::index'); //admin history data from API midtrans
 
 // testing payment success
-$routes->get('/paymentsukses', 'Admin\Transaksi::sukses'); 
+$routes->get('/paymentsukses', 'Payment::addTransaction');
+//$routes->get('/success', 'Admin\Transaksi::sukses');
 $routes->get('/tes', 'Admin\Tes::index');
 
 $routes->get('/login', 'Home::login');

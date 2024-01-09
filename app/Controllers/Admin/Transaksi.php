@@ -13,6 +13,6 @@ class Transaksi extends BaseController
 
     public function sukses()
     {
-        return view('paymentsukses');
+        return view('success');
     }
 }
